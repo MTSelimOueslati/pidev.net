@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "GestionContract";
     Layout = "~/Views/_LayoutPage1.cshtml";
+    
 }
 
 <h2>GestionContract</h2>
@@ -36,35 +37,36 @@
         <th></th>
     </tr>
 
-@foreach (var item in ViewBag.contracts) {
-<tr>
-    <td>
-        @item.id
-    </td>
-    <td>
-        @item.type
-    </td>
-    <td>
-        @item.buyer
-    </td>
-    <td>
-        @item.seller
-    </td>
-    <td>
-        @item.sum
-    </td>
-    <td>
-        @item.address
-    </td>
-    <td>
-        @item.date
-    </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
-        @Html.ActionLink("Details", "Details", new { id = item.id }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.id })
-    </td>
-</tr>
-}
+    @foreach (var item in ViewBag.contracts)
+    {
+        <tr>
+            <td>
+                @item.id
+            </td>
+            <td>
+                @item.type
+            </td>
+            <td>
+                @item.buyer
+            </td>
+            <td>
+                @item.seller
+            </td>
+            <td>
+                @item.sum
+            </td>
+            <td>
+                @item.address
+            </td>
+            <td>
+                @item.date
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
 
 </table>
