@@ -129,6 +129,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdController.cs" />
     <Compile Include="Controllers\ContractController.cs" />
     <Compile Include="Controllers\InsuranceController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
@@ -136,11 +137,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Ad.cs" />
+    <Compile Include="Models\AdType.cs" />
     <Compile Include="Models\Contract.cs" />
     <Compile Include="Models\ContractType.cs" />
     <Compile Include="Models\Erole.cs" />
     <Compile Include="Models\Insurance.cs" />
     <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\State.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -238,6 +242,7 @@
     <Content Include="Views\Contract\CreateContract.cshtml" />
     <Content Include="Views\Contract\GestionContract.cshtml" />
     <Content Include="Views\_LayoutPage1.cshtml" />
+    <Content Include="Views\Ad\CreateAd.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
