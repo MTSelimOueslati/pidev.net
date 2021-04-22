@@ -11,24 +11,24 @@ namespace Dari.Models
 
 		private const long serialVersionUID = 1L;
 
-		public int idRole;
+		public int id ;
 
-		public Erole roleType;
+		public Erole name;
 		
 
 		public Role() : base()
 		{
 		}
 
-		public virtual int IdRole
+		public virtual int Id
 		{
 			get
 			{
-				return idRole;
+				return id;
 			}
 			set
 			{
-				this.idRole = value;
+				this.id = value;
 			}
 		}
 
@@ -36,18 +36,18 @@ namespace Dari.Models
 
 
 
-		public virtual Erole RoleType
+		public virtual Erole Name
 		{
 			get
 			{
-				return roleType;
+				return name;
 			}
 			set
 			{
-				this.roleType = value;
+				this.name = value;
 			}
 		}
 
-
+		
 	}
 }

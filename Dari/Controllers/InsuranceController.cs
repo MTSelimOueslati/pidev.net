@@ -66,6 +66,27 @@ namespace Dari.Controllers
             return View();
         }
 
+        public ActionResult DeleteInsurance(int id)
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult DeleteInsurance(int id, FormCollection collection)
+        {
+
+            //HTTP POST
+            var putTask = httpClient.DeleteAsync(baseAddress + "delete/" + id.ToString());
+            putTask.Wait();
+
+            var result = putTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+
+                return RedirectToAction("GestionInsurance");
+            }
+            System.Diagnostics.Debug.WriteLine("entered here" + result);
+            return View();
+        }
 
         // GET: Insurance
         public ActionResult Index()

@@ -1,0 +1,86 @@
+﻿@model IEnumerable<Dari.Models.User>
+
+@{
+    ViewBag.Title = "GestionUser";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<h2>GestionUser</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phone_number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.verified)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.subscribed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_strype)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.roles)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in ViewBag.users)
+    {
+        <tr>
+
+            <td>
+                @item.username
+            </td>
+            <td>
+                @item.address
+            </td>
+            <td>
+                @item.phone_number
+            </td>
+            <td>
+                @item.email
+            </td>
+            <td>
+                @item.verified
+            </td>
+            <td>
+                @item.subscribed
+            </td>
+            <td>
+                @item.id_strype
+            </td>
+            <td>
+                @item.roles
+            </td>
+            <td>
+                @item.Password
+            </td>
+            <td>
+                @Html.ActionLink("EditUser", "EditUser", new { username = item.username }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                @Html.ActionLink("DeleteUser", "DeleteUser", new { id = item.id })
+            </td>
+
+
+        </tr>
+            }
+
+    </table>

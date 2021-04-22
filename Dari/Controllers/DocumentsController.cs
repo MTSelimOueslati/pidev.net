@@ -9,58 +9,26 @@ using System.Web.Mvc;
 
 namespace Dari.Controllers
 {
-    public class RoleController : Controller
+    public class DocumentsController : Controller
     {
-
-
         HttpClient httpClient;
         string baseAddress;
 
-        public RoleController()
+        public DocumentsController()
         {
-            baseAddress = "http://localhost:9293/SpringMVC/servlet/role/";
+            baseAddress = "http://localhost:9293/SpringMVC/servlet/documents/";
 
             httpClient = new HttpClient();
             httpClient.BaseAddress = new Uri(baseAddress);
-            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("multipart/form-data"));
             //var _AccessToken = 
 
         }
 
-        // GET: Role
-        public ActionResult GestionRole()
-        {
-            var _AccessToken = Session["AccessToken"];
-            httpClient.DefaultRequestHeaders.Add("Authorization", String.Format("Bearer " + _AccessToken));
-            HttpResponseMessage httpResponseMessage = httpClient.GetAsync(baseAddress + "findall").Result;
-            if (httpResponseMessage.IsSuccessStatusCode)
-            {
-                ViewBag.roles = httpResponseMessage.Content.ReadAsAsync<IEnumerable<Models.Role>>().Result;
-            }
-            else
-            {
-                ViewBag.roles = "erreur";
-            }
-            return View();
-        }
-
-        // GET: Role
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        // GET: Role/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // POST: Post/Create
         [HttpPost]
-        public ActionResult CreateRole(Role role)
+        public ActionResult CreateDocuments(Documents documents)
         {
-            var postTask = httpClient.PostAsJsonAsync<Role>(baseAddress + "addRole", role);
+            var postTask = httpClient.PostAsJsonAsync<Documents>(baseAddress + "add", documents);
             postTask.Wait();
 
             var result = postTask.Result;
@@ -68,23 +36,34 @@ namespace Dari.Controllers
             if (result.IsSuccessStatusCode)
             {
 
-                return RedirectToAction("GestionRole");
+                return RedirectToAction("GestionDocuments");
             }
             return View();
         }
         // GET: Post/Create
-        public ActionResult CreateRole()
+        public ActionResult CreateDocuments()
         {
             return View();
         }
-        // GET: Role/Create
+        // GET: Documents
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        // GET: Documents/Details/5
+        public ActionResult Details(int id)
+        {
+            return View();
+        }
+
+        // GET: Documents/Create
         public ActionResult Create()
         {
             return View();
         }
 
-
-        // POST: Role/Create
+        // POST: Documents/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -100,13 +79,13 @@ namespace Dari.Controllers
             }
         }
 
-        // GET: Role/Edit/5
+        // GET: Documents/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Role/Edit/5
+        // POST: Documents/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -122,13 +101,13 @@ namespace Dari.Controllers
             }
         }
 
-        // GET: Role/Delete/5
+        // GET: Documents/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Role/Delete/5
+        // POST: Documents/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

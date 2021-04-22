@@ -40,12 +40,78 @@ namespace Dari.Controllers
             }
             return View();
         }
+
         // GET: Post/Create
         public ActionResult CreateUser()
         {
             return View();
         }
 
+
+
+        public ActionResult GestionUser()
+        {
+            baseAddress = "http://localhost:9293/SpringMVC/servlet/users/";
+            var _AccessToken = Session["AccessToken"];
+            httpClient.DefaultRequestHeaders.Add("Authorization", String.Format("Bearer " + _AccessToken));
+            HttpResponseMessage httpResponseMessage = httpClient.GetAsync(baseAddress + "findall").Result;
+            if (httpResponseMessage.IsSuccessStatusCode)
+            {
+                ViewBag.users = httpResponseMessage.Content.ReadAsAsync<IEnumerable<Models.User>>().Result;
+            }
+            else
+            {
+                ViewBag.users = "erreur";
+            }
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult EditUser(User user)
+        {
+
+            baseAddress = "http://localhost:9293/SpringMVC/servlet/users/";
+
+            //HTTP POST
+            var putTask = httpClient.PutAsJsonAsync<User>(baseAddress + "update", user);
+            putTask.Wait();
+
+            var result = putTask.Result;
+
+            if (result.IsSuccessStatusCode)
+            {
+
+                return RedirectToAction("GestionUser");
+            }
+            return View();
+
+        }
+        public ActionResult EditUser()
+        {
+            return View();
+        }
+
+        public ActionResult DeleteUser(int id)
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult DeleteUser(int id, FormCollection collection)
+        {
+            baseAddress = "http://localhost:9293/SpringMVC/servlet/users/";
+            //HTTP POST
+            var putTask = httpClient.DeleteAsync(baseAddress + "delete/" + id.ToString());
+            putTask.Wait();
+
+            var result = putTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+
+                return RedirectToAction("GestionUser");
+            }
+            System.Diagnostics.Debug.WriteLine("entered here" + result);
+            return View();
+        }
         // GET: User
         public ActionResult Index()
         {
