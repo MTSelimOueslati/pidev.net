@@ -7,6 +7,8 @@ using System.Net.Http.Headers;
 using System.Web;
 using System.Web.Mvc;
 using Stripe.Infrastructure;
+using System.Configuration;
+using Stripe;
 
 namespace Dari.Controllers
 {
@@ -14,7 +16,6 @@ namespace Dari.Controllers
     {
         HttpClient httpClient;
         string baseAddress;
-        Stripe.StripeConfiguration.SetApiKey(“pk_test_FyPZYPyqf8jU6IdG2DONgudS”);  
 
 
 
@@ -27,33 +28,63 @@ namespace Dari.Controllers
             httpClient.BaseAddress = new Uri(baseAddress);
             httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             //var _AccessToken = 
+           // Stripe.StripeConfiguration.SetApiKey("sk_test_51ITYUZKuxtPIEeD5lsPmKh2sG7jhzhhOpuBjXgXg4PL8cdjL79dL038v5SXcR32Ro9yIRxpfX6KfPQrQSxmR1h1p00xID5MdR4");
+
 
         }
-
-
+      
+        
 
 
 
         [HttpPost]
-        public ActionResult ActivateSub(Subscription subscription)
+        public ActionResult ActivateSub(Models.Subscription subscription)
         {
-            var postTask = httpClient.PostAsJsonAsync<Subscription>(baseAddress + "ActivateSubscription/20", subscription);
+           
+            var postTask = httpClient.PostAsJsonAsync<Models.Subscription>(baseAddress + "ActivateSubscription/21", subscription);
             postTask.Wait();
 
             var result = postTask.Result;
+            
 
             if (result.IsSuccessStatusCode)
             {
 
-                return RedirectToAction("Index");
+                return RedirectToAction("GestionSubscription");
             }
             return View();
         }
+        public ActionResult ActivateSubs(Models.Subscription subscription)
+        {
 
 
+            ViewBag.StripePublishKey = ConfigurationManager.AppSettings["stripePublishableKey"];
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Charge(string stripeToken, string stripeEmail, int stripeAmount)
+        {
+            Stripe.StripeConfiguration.SetApiKey("pk_test_51ITYUZKuxtPIEeD5qxXEmosvcdrfrhZNcUJzOb6DzZ5WxX6j5a3KaJ1BzTEvyfovHw7La921Z8gAkm1w7haPXIYb00pl5lcmuV");
+            Stripe.StripeConfiguration.ApiKey = "sk_test_51ITYUZKuxtPIEeD5lsPmKh2sG7jhzhhOpuBjXgXg4PL8cdjL79dL038v5SXcR32Ro9yIRxpfX6KfPQrQSxmR1h1p00xID5MdR4";
+
+
+            var myCharge = new Stripe.ChargeCreateOptions();
+            // always set these properties
+            myCharge.Amount = stripeAmount;
+            myCharge.Currency = "USD";
+            myCharge.ReceiptEmail = stripeEmail;
+            myCharge.Description = "Sample Charge";
+            myCharge.Source = stripeToken;
+            myCharge.Capture = true;
+            var chargeService = new Stripe.ChargeService();
+            Charge stripeCharge = chargeService.Create(myCharge);
+            return View();
+        }
         // GET: Insurance
         public ActionResult GestionSubscription()
         {
+
             var _AccessToken = Session["AccessToken"];
             httpClient.DefaultRequestHeaders.Add("Authorization", String.Format("Bearer " + _AccessToken));
             HttpResponseMessage httpResponseMessage = httpClient.GetAsync(baseAddress + "findall").Result;
@@ -78,6 +109,8 @@ namespace Dari.Controllers
         {
             return View();
         }
+
+       
 
         // GET: Subscription/Details/5
         public ActionResult Details(int id)

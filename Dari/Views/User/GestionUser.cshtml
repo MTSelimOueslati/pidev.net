@@ -30,10 +30,8 @@
         <th>
             @Html.DisplayNameFor(model => model.subscribed)
         </th>
-      
-        <th>
-            @Html.DisplayNameFor(model => model.roles)
-        </th>
+
+
         <th>
             @Html.DisplayNameFor(model => model.Password)
         </th>
@@ -42,40 +40,38 @@
 
     @foreach (var item in ViewBag.users)
     {
-        <tr>
+<tr>
 
-            <td>
-                @item.username
-            </td>
-            <td>
-                @item.address
-            </td>
-            <td>
-                @item.phone_number
-            </td>
-            <td>
-                @item.email
-            </td>
-            <td>
-                @item.verified
-            </td>
-            <td>
-                @item.subscribed
-            </td>
-            <td>
-                @item.rolesdes
-            </td>
-            <td>
-                @item.Password
-            </td>
-            <td>
-                @Html.ActionLink("EditUser", "EditUser", new { username = item.username }) |
-                @Html.ActionLink("Details", "Details", new { id = item.id }) |
-                @Html.ActionLink("DeleteUser", "DeleteUser", new { id = item.id })
-            </td>
+    <td>
+        @item.username
+    </td>
+    <td>
+        @item.address
+    </td>
+    <td>
+        @item.phone_number
+    </td>
+    <td>
+        @item.email
+    </td>
+    <td>
+        @item.verified
+    </td>
+    <td>
+        @item.subscribed
+    </td>
+  
+    <td>
+        @item.Password
+    </td>
+    <td>
+        @Html.ActionLink("EditUser", "EditUser", new { username = item.username }) |
+        @Html.ActionLink("Details", "Details", new { id = item.id }) |
+        @Html.ActionLink("DeleteUser", "DeleteUser", new { id = item.id })
+    </td>
 
 
-        </tr>
+</tr>
             }
 
     </table>

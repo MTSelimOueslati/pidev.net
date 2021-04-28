@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "ActivateSubs";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<h2>Payment</h2>
+
+<script src="//checkout.stripe.com/v2/checkout.js"
+        class="stripe-button"
+        data-key="@ViewBag.StripePublishKey"
+        data-locale="auto"
+        data-description="Sample Charge"
+        data-amount="500">
+</script>
+
+<div>
+    @Html.ActionLink("Activate now", "ActivateSub")
+</div>

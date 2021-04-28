@@ -18,17 +18,20 @@ namespace Dari.Models
         public Boolean subscribed { get; set; }
         public String id_strype { get; set; }
         public ISet<Role> roles { get; set; }
-        
-        
-        
-        public String rolesdes { get {
-                string rd="";
-                foreach (var rol in roles)
-                {
-                    rd = rd + rol.Name + " ;";
-                }
-                return rd;
-            }}  
+        public ICollection<Contract> contracts { get; set; }
+
+
+
+        /* public String rolesdes { get {
+                 string rd="";
+                 foreach (var rol in roles)
+                 {
+                     rd = rd + rol.Name + " ;";
+                 }
+                 return rd;
+             }
+
+         }  */
 
         public virtual string Password
         {

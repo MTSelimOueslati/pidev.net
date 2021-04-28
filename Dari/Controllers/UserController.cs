@@ -36,7 +36,7 @@ namespace Dari.Controllers
             if (result.IsSuccessStatusCode)
             {
 
-                return RedirectToAction("Index");
+                return RedirectToAction("login");
             }
             return View();
         }
@@ -135,7 +135,7 @@ namespace Dari.Controllers
                 Session["AccessToken"] = jsonreponse.AccessToken;
                 Session["Role"] = jsonreponse.role;
                 Session["User"] = jsonreponse.username;
-                return RedirectToAction("GestionUser");
+                return RedirectToAction("Index");
             }
             return View();
         }

@@ -15,5 +15,6 @@ namespace Dari.Models
         public float sum { get; set; }
         public String address { get; set; }
         public DateTime date { get; set; }
+        public User user { get; set; }
     }
 }
