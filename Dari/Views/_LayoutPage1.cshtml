@@ -2,8 +2,10 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
+
+
     <title>@ViewBag.Title</title>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
     <link href="~/css/camera.css" rel="stylesheet" />
     <link href="~/css/style.css" rel="stylesheet" />
     <link href="~/css/table.css" rel="stylesheet" />
@@ -12,6 +14,21 @@
     <script src="~/js/jquery.mobile.customized.min.js"></script>
     <script src="~/js/jquery.min.js"></script>
     <script src="~/js/modernizr.custom.70736.js"></script>
+    <script>
+        jQuery(function () {
+
+            jQuery('#camera_wrap_1').camera({
+                thumbnails: true
+            });
+
+            jQuery('#camera_wrap_2').camera({
+                height: '400px',
+                loader: 'bar',
+                pagination: false,
+                thumbnails: true
+            });
+        });
+    </script>
 
 </head>
 <body>
@@ -23,7 +40,7 @@
             <div class="header-right">
                 <ul class="nav">
                     <li>
-                        <a href="index.html">
+                        <a href="https://localhost:44331/User/Index">
                             <h3>
                                 <span>Home</span>
                                 <p>Home Info</p>
@@ -31,34 +48,34 @@
                         </a>
                     </li>
                     <li>
-                        <a href="about.html">
+                        <a href="https://localhost:44331/Insurance/GestionInsurance">
                             <h3>
-                                <span>About</span>
-                                <p>Write Info</p>
+                                <span>Insurance</span>
+                                <p>Managment</p>
                             </h3>
                         </a>
                     </li>
                     <li>
-                        <a href="venture.html">
+                        <a href="https://localhost:44331/User/GestionUser">
                             <h3>
-                                <span>Ventures</span>
-                                <p>My Work Info</p>
+                                <span>User</span>
+                                <p>Management</p>
                             </h3>
                         </a>
                     </li>
                     <li>
-                        <a href="service.html">
+                        <a href="https://localhost:44331/Contract/GestionContract">
                             <h3>
-                                <span>Services</span>
-                                <p>Features Info</p>
+                                <span>Contracts</span>
+                                <p> Managment</p>
                             </h3>
                         </a>
                     </li>
-                    <li class="active">
-                        <a href="contact.html">
+                    <li>
+                        <a href="https://localhost:44331/Subscription/GestionSubscription">
                             <h3>
-                                <span>Contact</span>
-                                <p>Get Info</p>
+                                <span>Subscriptions</span>
+                                <p>Management </p>
                             </h3>
                         </a>
                     </li>

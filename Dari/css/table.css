@@ -5,6 +5,10 @@
     border-collapse: collapse;
 }
 
+table{
+    width:100%;
+}
+
     table.table td, table.table th {
         border: 1px solid #000000;
         padding: 5px 4px;

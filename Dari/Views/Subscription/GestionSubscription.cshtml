@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Dari.Models.Subscription>
+
+@{
+    ViewBag.Title = "GestionSubscription";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<h2>GestionSubscription</h2>
+
+<p>
+    @Html.ActionLink("Create New", "ActivateSub")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.idsubscription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.offer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.startDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.endDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.subtype)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in ViewBag.subscriptions) {
+    <tr>
+        <td>
+            @item.idsubscription
+        </td>
+        <td>
+            @item.offer
+        </td>
+        <td>
+            @item.startDate
+        </td>
+        <td>
+            @item.endDate
+        </td>
+        <td>
+            @item.subtype
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

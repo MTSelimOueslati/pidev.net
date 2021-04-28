@@ -124,6 +124,22 @@ namespace Dari.Controllers
             return View();
         }
 
+        public ActionResult login(LoginObject.Login login)
+        {
+            baseAddress = "http://localhost:9293/SpringMVC/servlet/api/auth";
+            if (!login.username.Equals("") && !login.password.Equals(""))
+            {
+                var APIResponse = httpClient.PostAsJsonAsync<LoginObject.Login>(baseAddress + "/signin", login).ContinueWith(postTask => postTask.Result.EnsureSuccessStatusCode());
+
+                var jsonreponse = APIResponse.Result.Content.ReadAsAsync<LoginObject.jwtResponse>().Result;
+                Session["AccessToken"] = jsonreponse.AccessToken;
+                Session["Role"] = jsonreponse.role;
+                Session["User"] = jsonreponse.username;
+                return RedirectToAction("GestionUser");
+            }
+            return View();
+        }
+
         // GET: User/Create
         public ActionResult Create()
         {

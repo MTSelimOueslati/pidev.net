@@ -12,11 +12,23 @@ namespace Dari.Models
         public String address { get; set; }
         public int phone_number { get; set; }
         public String email { get; set; }
+
         public String password;
         public Boolean verified { get; set; }
         public Boolean subscribed { get; set; }
         public String id_strype { get; set; }
         public ISet<Role> roles { get; set; }
+        
+        
+        
+        public String rolesdes { get {
+                string rd="";
+                foreach (var rol in roles)
+                {
+                    rd = rd + rol.Name + " ;";
+                }
+                return rd;
+            }}  
 
         public virtual string Password
         {

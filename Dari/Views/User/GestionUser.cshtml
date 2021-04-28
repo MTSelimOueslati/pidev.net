@@ -8,9 +8,9 @@
 <h2>GestionUser</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "CreateUser")
 </p>
-<table class="table">
+<table class="table" >
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.username)
@@ -30,9 +30,7 @@
         <th>
             @Html.DisplayNameFor(model => model.subscribed)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.id_strype)
-        </th>
+      
         <th>
             @Html.DisplayNameFor(model => model.roles)
         </th>
@@ -65,10 +63,7 @@
                 @item.subscribed
             </td>
             <td>
-                @item.id_strype
-            </td>
-            <td>
-                @item.roles
+                @item.rolesdes
             </td>
             <td>
                 @item.Password
