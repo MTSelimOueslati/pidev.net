@@ -7,6 +7,7 @@ using System.Net.Http.Headers;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace Dari.Controllers
 {
     public class ContractController : Controller
@@ -46,7 +47,7 @@ namespace Dari.Controllers
         [HttpPost]
         public ActionResult CreateContract(Contract contract)
         {
-            var postTask = httpClient.PostAsJsonAsync<Contract>(baseAddress + "add/1", contract);
+            var postTask = httpClient.PostAsJsonAsync<Contract>(baseAddress + "add/1" , contract);
             postTask.Wait();
 
             var result = postTask.Result;
@@ -63,22 +64,69 @@ namespace Dari.Controllers
         {
             return View();
         }
+
+        public ActionResult EditContract(int id)
+        {
+            return View();
+        }
+
+
+
+        // POST: Post/Edit/5
+        [HttpPost]
+        public ActionResult EditContract(int id, Contract contract)
+        {
+            //HTTP POST
+            var putTask = httpClient.PutAsJsonAsync<Contract>(baseAddress + "update/" + id.ToString(), contract);
+            putTask.Wait();
+
+            var result = putTask.Result;
+
+            if (result.IsSuccessStatusCode)
+            {
+
+                return RedirectToAction("GestionContract");
+            }
+            return View();
+
+        }
+
         // GET: Contract
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: Contract/Details/5
+
+
+        [HttpGet]
         public ActionResult Details(int id)
         {
-            return View();
+            HttpResponseMessage httpResponseMessage;
+            var _AccessToken = Session["AccessToken"];
+            httpClient.DefaultRequestHeaders.Add("Authorization", String.Format("Bearer " + _AccessToken));
+            httpResponseMessage = httpClient.GetAsync(baseAddress + "getbyid/" + id).Result;
+            Contract contract;
+            if (httpResponseMessage.IsSuccessStatusCode)
+            {
+
+                contract = httpResponseMessage.Content.ReadAsAsync<Contract>().Result;
+            }
+            else
+            {
+                contract = null;
+            }
+
+            return View(contract);
         }
 
+
+     
+
         // GET: Contract/Create
-        public ActionResult Create()
+        public ActionResult GeneratePDF(Contract c)
         {
-            return View();
+            return new Rotativa.ActionAsPdf("Details/"+c.id);
         }
 
         // POST: Contract/Create

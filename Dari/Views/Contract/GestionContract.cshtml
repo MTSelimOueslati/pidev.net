@@ -3,10 +3,11 @@
 @{
     ViewBag.Title = "Gestion Contract";
     Layout = "~/Views/_LayoutPage1.cshtml";
-    
+
 }
 
-<h2>Liste des Contracts</h2>
+<center>
+<h2>List of available  Contracts</h2></center>
 
 <p>
     @Html.ActionLink("Create New", "CreateContract")
@@ -62,7 +63,7 @@
                 @item.date
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Edit", "EditContract", new { id = item.id }) |
                 @Html.ActionLink("Details", "Details", new { id = item.id }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.id })
             </td>

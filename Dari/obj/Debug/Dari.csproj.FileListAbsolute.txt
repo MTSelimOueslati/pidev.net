@@ -194,3 +194,7 @@ C:\Users\taieb\source\repos\pidev.net\Dari\bin\System.Threading.Tasks.Extensions
 C:\Users\taieb\source\repos\pidev.net\Dari\bin\RestSharp.dll
 C:\Users\taieb\source\repos\pidev.net\Dari\bin\Stripe.dll
 C:\Users\taieb\source\repos\pidev.net\Dari\bin\RestSharp.xml
+C:\Users\taieb\source\repos\pidev.net\Dari\bin\BouncyCastle.Crypto.dll
+C:\Users\taieb\source\repos\pidev.net\Dari\bin\itextsharp.dll
+C:\Users\taieb\source\repos\pidev.net\Dari\bin\itextsharp.xml
+C:\Users\taieb\source\repos\pidev.net\Dari\bin\Rotativa.dll

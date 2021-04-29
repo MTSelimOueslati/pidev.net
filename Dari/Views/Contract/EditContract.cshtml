@@ -1,0 +1,79 @@
+﻿@model Dari.Models.Contract
+
+@{
+    ViewBag.Title = "EditContract";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<center><h2>*************************Edit Contract*************************</h2></center>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+<center>
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.id)
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        <p>
+            Contract Type: RENTING OR BUYING
+        </p>            <div class="col-md-10">
+            @Html.EditorFor(model => model.type, new { htmlAttributes = new { @class = "css-input" } })
+            @Html.ValidationMessageFor(model => model.type, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <p>Buyer or Renter</p>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.buyer, new { htmlAttributes = new { @class = "css-input" } })
+            @Html.ValidationMessageFor(model => model.buyer, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p>Seller or Tenant</p>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.seller, new { htmlAttributes = new { @class = "css-input" } })
+            @Html.ValidationMessageFor(model => model.seller, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p>Ammount </p>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.sum, new { htmlAttributes = new { @class = "css-input" } })
+            @Html.ValidationMessageFor(model => model.sum, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p>Address of the property</p>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.address, new { htmlAttributes = new { @class = "css-input" } })
+            @Html.ValidationMessageFor(model => model.address, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p>Date of sale</p>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.date, new { htmlAttributes = new { @class = "css-input" } })
+            @Html.ValidationMessageFor(model => model.date, "", new { @class = "text-danger" })
+        </div>
+    </div>
+        <br />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="myButton" />
+            </div>
+        </div>
+    </div>
+</center>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

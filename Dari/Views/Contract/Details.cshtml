@@ -1,0 +1,65 @@
+﻿@model Dari.Models.Contract
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<h2>Contract Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+
+
+
+
+
+        <dd>
+            Heres is the contract of   :   @Html.DisplayFor(model => model.type) <br /><br />
+        </dd>
+
+
+
+
+        <dd>
+            Where the buyer is   :     @Html.DisplayFor(model => model.buyer) <br /><br />
+        </dd>
+
+
+
+
+        <dd>
+            And the seller is    :     @Html.DisplayFor(model => model.seller)<br /><br />
+        </dd>
+
+
+
+
+        <dd>
+            For the ammount of    :      @Html.DisplayFor(model => model.sum)  DT<br /><br />
+        </dd>
+
+
+
+
+        <dd>
+            Located in    :     @Html.DisplayFor(model => model.address)<br /><br />
+        </dd>
+
+        <dt>
+        </dt>
+
+        <dd>
+            By the date of    :     @Html.DisplayFor(model => model.date)<br /><br />
+        </dd>
+
+        <dd>Signature of the buyer   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;          Signature of the seller</dd>
+        <br /><br /><br /><br /><br />
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index") |
+    @Html.ActionLink("Download Contract", "GeneratePDF", new { id = Model.id }) 
+</p>

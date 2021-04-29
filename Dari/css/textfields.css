@@ -1,0 +1,29 @@
+﻿.css-input {
+    padding: 1px;
+    font-size: 19px;
+    border-width: 1px;
+    border-color: #f51055;
+    background-color: #FFFFFF;
+    color: #2a2a2a;
+    border-style: solid;
+    border-radius: 19px;
+    box-shadow: 0px 0px 5px rgba(66,66,66,.75);
+    text-shadow: -50px 0px 0px rgba(66,66,66,.75);
+}
+
+.form-control {
+    padding: 1px;
+    font-size: 19px;
+    border-width: 1px;
+    border-color: #f51055;
+    background-color: #FFFFFF;
+    color: #2a2a2a;
+    border-style: solid;
+    border-radius: 19px;
+    box-shadow: 0px 0px 5px rgba(66,66,66,.75);
+    text-shadow: -50px 0px 0px rgba(66,66,66,.75);
+}
+
+    .css-input:focus {
+        outline: none;
+    }

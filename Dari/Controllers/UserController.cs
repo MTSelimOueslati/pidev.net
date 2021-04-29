@@ -141,7 +141,7 @@ namespace Dari.Controllers
         }
 
         // GET: User/Create
-        public ActionResult Create()
+        public ActionResult login()
         {
             return View();
         }
