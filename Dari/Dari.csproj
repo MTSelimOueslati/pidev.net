@@ -152,6 +152,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdController.cs" />
     <Compile Include="Controllers\ContractController.cs" />
     <Compile Include="Controllers\DocumentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -164,12 +165,15 @@
     </Compile>
     <Compile Include="LoginObject\jwtResponse.cs" />
     <Compile Include="LoginObject\Login.cs" />
+    <Compile Include="Models\Ad.cs" />
+    <Compile Include="Models\AdType.cs" />
     <Compile Include="Models\Contract.cs" />
     <Compile Include="Models\ContractType.cs" />
     <Compile Include="Models\Documents.cs" />
     <Compile Include="Models\Erole.cs" />
     <Compile Include="Models\Insurance.cs" />
     <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\State.cs" />
     <Compile Include="Models\Subscription.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -279,6 +283,11 @@
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\login.cshtml" />
     <Content Include="Views\Subscription\ActivateSubs.cshtml" />
+    <Content Include="Views\Ad\DeleteAd.cshtml" />
+    <Content Include="Views\Ad\GestionAd.cshtml" />
+    <Content Include="Views\Ad\CreateAd.cshtml" />
+    <Content Include="Views\Ad\EditAd.cshtml" />
+    <Content Include="Views\Ad\AddAd.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
