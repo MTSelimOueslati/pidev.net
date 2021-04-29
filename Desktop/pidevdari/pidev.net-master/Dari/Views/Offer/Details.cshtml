@@ -1,0 +1,66 @@
+﻿@model Dari.Models.offer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>offer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.idOffer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idOffer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.intrestRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.intrestRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tex)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tex)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.salaireMin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.salaireMin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nmb)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nmb)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

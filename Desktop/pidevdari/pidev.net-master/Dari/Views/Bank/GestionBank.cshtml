@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Dari.Models.bank>
+
+@{
+    ViewBag.Title = "GestionBank";
+}
+
+<h2>GestionBank</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in ViewBag.banks) {
+<tr>
+    <td>
+        @item.idBank
+    </td>
+    <td>
+    <td>
+        @item.name
+    </td>
+    <td>
+
+     
+        @Html.ActionLink("Delete", "DeleteBank", new { id = item.idBank })
+    </td>
+</tr>
+}
+
+</table>
