@@ -1,0 +1,127 @@
+﻿@model IEnumerable<Dari.Models.Wishlist>
+
+@{
+    ViewBag.Title = "GestionWishlist";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<h2>GestionWishlist</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateWishlist")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.idw)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.adType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.state)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.area)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nbrooms)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nbbath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nbgarage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.garden)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.elevator)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pool)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.furnished)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dateCreated)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in ViewBag.wishlists)
+    {
+<tr>
+    <td>
+        @item.idw
+    </td>
+    <td>
+        @item.ad
+    </td>
+
+    <td>
+        @item.adType
+    </td>
+    <td>
+        @item.description
+    </td>
+
+    <td>
+        @item.state
+    </td>
+    <td>
+        @item.price
+    </td>
+    <td>
+        @item.location
+    </td>
+    <td>
+        @item.area
+    </td>
+    <td>
+        @item.nbrooms
+    </td>
+    <td>
+        @item.nbbath
+    </td>
+    <td>
+        @item.nbgarage
+    </td>
+    <td>
+        @item.garden
+    </td>
+    <td>
+        @item.elevator
+    </td>
+    <td>
+        @item.pool
+    </td>
+    <td>
+        @item.furnished
+    </td>
+    <td>
+        @item.dateCreated
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "EditWishlist", new { id = item.idw }) |
+        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+        @Html.ActionLink("Delete", "DeleteWishlist", new { id = item.idw })
+    </td>
+</tr>
+
+    }
+
+</table>
