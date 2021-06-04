@@ -1,0 +1,67 @@
+﻿@model Dari.Models.Achat
+
+@{
+    ViewBag.Title = "GestionAchat";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<h2>GestionAchat</h2>
+<p>
+    @Html.ActionLink("Add New", "AddAchat")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ida)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ad)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.area)
+        </th>
+
+        <th></th>
+    </tr>
+    @foreach (var item in ViewBag.achats)
+    {
+<tr>
+    <td>
+        @item.ida
+    </td>
+    <td>
+        @item.ad
+    </td>
+
+    <td>
+        @item.description
+    </td>
+
+    <td>
+        @item.price
+    </td>
+    <td>
+        @item.location
+    </td>
+    <td>
+        @item.area
+    </td>
+
+    <td>
+        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+        @Html.ActionLink("Delete", "DeleteAchat", new { id = item.ida })
+    </td>
+</tr>}
+
+</table>
